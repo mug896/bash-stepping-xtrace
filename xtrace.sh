@@ -10,7 +10,7 @@
 trap 'exec 2> /dev/null
     rm -f $mypipe
     kill $print_pid
-    pkill -g $target_pid'   EXIT
+    kill -- -$target_pid'   EXIT
 
 mypipe=/tmp/mypipe_$$
 mkfifo $mypipe
@@ -33,10 +33,15 @@ fi
 __trap_debug__() {
     set -o monitor
     suspend -f
-    
-    # This enable stepping in subshell.                       
-    # If you don't want stepping in subshell then comment it out.
-    set +o monitor 
+
+##########################################################
+#                                                        #
+#   This enable stepping in subshell.                    # 
+#   If you want stepping in subshell then uncomment it   #
+#                                                        #
+##########################################################
+
+    # set +o monitor 
 }
 
 __trace_ON__() {
