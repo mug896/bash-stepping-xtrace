@@ -8,12 +8,12 @@
 #############################################################
 
 trap 'exec 2> /dev/null
-    rm -f $mypipe
+    rm -f $pipe
     kill $print_pid
     kill -- -$target_pid'   EXIT
 
-mypipe=/tmp/mypipe_$$
-mkfifo $mypipe
+pipe=/tmp/pipe_$$
+mkfifo $pipe
 
 #####  Check usage
 
@@ -71,7 +71,7 @@ while read -r line; do
         *__trap_debug__* )  continue ;;
     esac
     echo "$line" >& 2
-done < $mypipe &
+done < $pipe &
 
 print_pid=$!
 
@@ -82,7 +82,7 @@ print_pid=$!
 set -o monitor
 
 # enable tracing for shell function
-bash -c "$target_command"' "$0" "$@"' "$@" &> $mypipe & 
+bash -c "$target_command"' "$0" "$@"' "$@" &> $pipe & 
 
 target_pid=$!
 
