@@ -81,7 +81,7 @@ print_pid=$!
 # disable suspend
 set -o monitor
 
-# enable tracing for shell function
+# enable tracing for shell functions
 bash -c "$target_command"' "$0" "$@"' "$@" &> $pipe & 
 
 target_pid=$!
