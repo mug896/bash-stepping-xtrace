@@ -34,12 +34,12 @@ __trap_debug__() {
     set -o monitor
     suspend -f
 
-##########################################################
-#                                                        #
-#   This enable stepping in subshell.                    # 
-#   If you want stepping in subshell then uncomment it   #
-#                                                        #
-##########################################################
+###########################################################
+#                                                         #
+#   This enable stepping in subshells.                    # 
+#   If you want stepping in subshells then uncomment it   #
+#                                                         #
+###########################################################
 
     # set +o monitor 
 }
