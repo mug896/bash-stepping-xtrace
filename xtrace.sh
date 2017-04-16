@@ -1,11 +1,11 @@
 #!/bin/bash
 
-#############################################################
-#                                                           #
-#   This script is for /bin/bash shell scripts              #
-#   You can't use this script with /bin/sh shell scripts    #
-#                                                           #
-#############################################################
+################################################
+#                                              #
+#   This is for /bin/bash scripts              #
+#   You can't use this with /bin/sh scripts.   #
+#                                              #
+################################################
 
 trap 'exec 2> /dev/null
     rm -f $pipe
@@ -33,7 +33,6 @@ fi
 __trap_debug__() {
     set -o monitor
     suspend -f
-
     set +o monitor 
 }
 
