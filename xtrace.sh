@@ -62,7 +62,7 @@ while read -r line; do
         *__trace_OFF__* )  continue ;;
         *__trap_debug__* )  continue ;;
     esac
-    echo "$line" >& 2
+    echo "$line" >&2
 done < $pipe &
 
 print_pid=$!
