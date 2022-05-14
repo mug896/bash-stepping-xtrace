@@ -19,7 +19,7 @@ mkfifo $pipe
 
 if [ ${#@} -eq 0 ]; then
     echo
-    echo Usage: "$(basename $0)" command arg1 arg2 ...
+    echo Usage: "$(basename $0)" bash_script arg1 arg2 ...
     echo
     exit 1
 else
@@ -84,6 +84,7 @@ target_pid=$!
 while read line; do  
     if kill -0 $target_pid 2> /dev/null; then
         fg %% > /dev/null
+        sleep 0; echo -e "\e[0;34mDONE\e[0m"
     else
         exit
     fi
